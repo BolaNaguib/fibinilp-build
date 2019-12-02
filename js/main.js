@@ -1,18 +1,49 @@
-// async function supportsWebp() {
-//   if (!self.createImageBitmap) return false;
-//     const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
-//   const blob = await fetch(webpData).then(r => r.blob());
-//   return createImageBitmap(blob).then(() => true, () => false);
-// }
-// (async () => {
-//   if(await supportsWebp()) {
-//     console.log('does support');
-//     const jpgclass = $('.jpgclass');
-//     jpgclass.show();
-//   }
-//   else {
-//     console.log('does not support');
-//     const webpclass = $('.webpclass');
-//     webpclass.show();
-//   }
-// })();cd 
+$(function() {
+  // Get the form.
+  var form = $('#ajax-contact');
+
+  // Get the messages div.
+  var formMessages = $('#form-messages');
+
+  // TODO: The rest of the code will go here...
+  // Set up an event listener for the contact form.
+  $(form).submit(function(event) {
+    // Stop the browser from submitting the form.
+    event.preventDefault();
+
+    // TODO
+    // Serialize the form data.
+    var formData = $(form).serialize();
+    // Submit the form using AJAX.
+    $.ajax({
+        type: 'POST',
+        url: $(form).attr('action'),
+        data: formData
+      })
+      .done(function(response) {
+        // Make sure that the formMessages div has the 'success' class.
+        $(formMessages).removeClass('error');
+        $(formMessages).addClass('success');
+
+        // Set the message text.
+        $(formMessages).text(response);
+
+        // Clear the form.
+        $('#name').val('');
+        $('#email').val('');
+        $('#message').val('');
+      })
+      .fail(function(data) {
+        // Make sure that the formMessages div has the 'error' class.
+        $(formMessages).removeClass('success');
+        $(formMessages).addClass('error');
+
+        // Set the message text.
+        if (data.responseText !== '') {
+          $(formMessages).text(data.responseText);
+        } else {
+          $(formMessages).text('Oops! An error occured and your message could not be sent.');
+        }
+      });
+  });
+});
