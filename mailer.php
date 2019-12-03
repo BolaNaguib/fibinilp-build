@@ -20,7 +20,7 @@
 
         // Set the recipient email address.
         // FIXME: Update this to your desired email address.
-        $recipient = "bolanaguib@gmail.com,contact@finibimortgage.com,finibimortgagemarketing@gmail.com";
+        $recipient = "bolanaguib@gmail.com,contact@finibimortgage.com,finibimortgagemarketing@gmail.com,josephcorrea@finibimortgage.com,contact@finibimortgageorlando.com";
 
         // Set the email subject.
         $subject = "New contact from $name";
