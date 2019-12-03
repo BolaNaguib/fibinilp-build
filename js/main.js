@@ -34,6 +34,7 @@ $(function() {
 				$('#number').val('');
 				$('#budget').val('');
 				$('#message').val('');
+         window.location.href = "/thanks.html";
       })
       .fail(function(data) {
         // Make sure that the formMessages div has the 'error' class.
