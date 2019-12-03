@@ -20,7 +20,7 @@
 
         // Set the recipient email address.
         // FIXME: Update this to your desired email address.
-        $recipient = "bolanaguib@gmail.com,contact@finibimortgageorlando.com,finibimortgagemarketing@gmail.com";
+        $recipient = "bolanaguib@gmail.com,contact@finibimortgage.com,finibimortgagemarketing@gmail.com";
 
         // Set the email subject.
         $subject = "New contact from $name";
@@ -28,8 +28,8 @@
         // Build the email content.
         $email_content = "Name: $name\n";
         $email_content .= "Email: $email\n\n";
-        $email_content .= "Number: $number\n\n";
-        $email_content .= "Budget: $budget\n\n";
+        $email_content .= "Phone Number: $number\n\n";
+        $email_content .= "Loan Amount: $budget\n\n";
         $email_content .= "Message:\n$message\n";
 
         // Build the email headers.
